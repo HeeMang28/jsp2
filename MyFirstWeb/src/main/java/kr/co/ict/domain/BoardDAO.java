@@ -79,7 +79,7 @@ public class BoardDAO {
 		try {
 			// 연결해주세요.
 			con = ds.getConnection();
-			String sql = "SELETE * FROM boardTbl WHERE bno = ?";
+			String sql = "SELECT * FROM boardTbl WHERE board_num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, boardNum); 
 			rs = pstmt.executeQuery();
@@ -106,6 +106,29 @@ public class BoardDAO {
 			}
 		}
 		return board;
+	}
+	public void boardInsert(String title, String content, String writer) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			
+			con = ds.getConnection();
+			String join = "INSERT INTO boardTbl (title, content, writer) VALUES ( ? , ? , ? )";
+			pstmt = con.prepareStatement(join);
+			pstmt.setString(1, title);
+			pstmt.setString(2, content);
+			pstmt.setString(3, writer);
+			pstmt.executeUpdate();
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		try {
+			con.close();
+			pstmt.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		}
 	}
 }
 	

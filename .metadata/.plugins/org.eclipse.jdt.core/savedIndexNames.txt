@@ -20,7 +20,6 @@ INDEX VERSION 1.131+C:\eclipse2\workspace2\.metadata\.plugins\org.eclipse.jdt.co
 2789356589.index
 950840932.index
 1172762760.index
-297493360.index
 935524759.index
 800840188.index
 394147764.index

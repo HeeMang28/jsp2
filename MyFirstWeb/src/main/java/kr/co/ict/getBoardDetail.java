@@ -17,13 +17,13 @@ import kr.co.ict.domain.BoardVO;
  * Servlet implementation class getBoardDetail
  */
 @WebServlet("/boardDetail")
-public class getBoardDetail extends HttpServlet {
+public class GetBoardDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getBoardDetail() {
+    public GetBoardDetail() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,9 +40,9 @@ public class getBoardDetail extends HttpServlet {
 		// DAO에서 호출한 디테일 글 정보를 저장해주세요.
 		BoardVO board  = dao.getBoardDetail(boardNum);
 		// 얻어온 글 정보를 디버깅해주세요.
-		System.out.println("글정보 : " + boardNum);
+		System.out.println(board);
 		// 바인딩 해주세요.
-		request.setAttribute("board_num", board);
+		request.setAttribute("board", board);
 		RequestDispatcher dp = request.getRequestDispatcher("/board/boardDetail.jsp");
 		// 포워딩해주세요. (/board/boardDetail.jsp로)
 		dp.forward(request, response);

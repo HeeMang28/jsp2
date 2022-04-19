@@ -1,1 +1,5 @@
 1650280570056	Delete element
+1650364601103	Rename type 'getBoardList'
+1650364606428	Rename type 'getBoardDetail'
+1650364611998	Rename type 'boardInsertForm'
+1650364626527	Rename compilation unit 'boardInsert.java'
