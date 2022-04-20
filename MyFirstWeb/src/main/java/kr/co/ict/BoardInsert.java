@@ -45,16 +45,13 @@ public class BoardInsert extends HttpServlet {
 		System.out.println(title);
 		System.out.println(content);
 		System.out.println(writer);
+		// dao생성
 		BoardDAO dao = BoardDAO.getInstance();
+		// dao의 insert기능  호출 및 파라미터 매칭
 		dao.boardInsert(title, content, writer);
 		
-		request.setAttribute("title", title);
-		request.setAttribute("content", content);
-		request.setAttribute("writer", writer);
-		// redirect로 주소를 그냥 보내도 되지만(아무것도 받지 않앗을경우 ) 리다이렉트로 보낼경우 주소가 .jsp 형식으로 그대로 남기때문에
-		// 보이게 하지 않기 위해 requestdispatcher 사용(포워딩 처리)
-		RequestDispatcher dp = request.getRequestDispatcher("/board/boardInsertForm.jsp");
-		dp.forward(request, response);
+		// boardList로 리다이렉트(서블릿 주소로 리다이렉트시 파일이름 노출 안됨.)
+		response.sendRedirect("http://localhost:8181/MyFirstWeb/boardList");
 	}
 	}
 

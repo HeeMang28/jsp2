@@ -30,7 +30,7 @@
 			<tr>
 				<td>${board.boardNum }</td>
 				<td>${board.title }</td>
-				<td><a href="/MyFirstWeb/boardDetail">${board.content }</td>
+				<td>${board.content }</td>
 				<td>${board.writer }</td>
 				<td>${board.bDate }</td>
 				<td>${board.mDate }</td>
