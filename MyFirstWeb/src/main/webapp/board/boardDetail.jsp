@@ -15,11 +15,16 @@
 	쓴날짜 : ${board.bDate } <br/>
 	마지막 수정날짜 : ${board.mDate }<br/>
 	<hr/>
+	<a href="http://localhost:8181/MyFirstWeb/boardList"><buttion>목록으로</buttion></a>
 	<!--  삭제번호를 서블릿 boardDelete로 보내야함 -->
 	<form action="http://localhost:8181/MyFirstWeb/boardDelete" method="post">
 	<!--  삭제용 글 번호는 노출시킬 필요가 없으므로 hidden타입으로 숨겨서 보냄 -->
 	<input type="hidden" name="board_num" value="${board.boardNum }"><br/>
 	<input type="submit" value="삭제하기" />
+	</form>
+	<form action="http://localhost:8181/MyFirstWeb/boardUpdateForm" method="post">
+	<input type="hidden" name="board_num" value="${board.boardNum }"><br/>
+	<input type="submit" value="수정하기">
 	</form>
 </body>
 </html>
