@@ -31,6 +31,7 @@ public class BoardUpdateForm extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		String strBoardNum = request.getParameter("board_num");
 		int boardNum = Integer.parseInt(strBoardNum);
 		BoardDAO dao = BoardDAO.getInstance();

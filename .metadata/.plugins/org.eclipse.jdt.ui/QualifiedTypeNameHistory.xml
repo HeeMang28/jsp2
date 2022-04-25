@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="kr.co.ict.domain.BoardDAO"/>
     <fullyQualifiedTypeName name="kr.co.ict.domain.BoardVO"/>
+    <fullyQualifiedTypeName name="kr.co.ict.domain.BoardDAO"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="kr.co.bacode.domain.UserDAO"/>
+    <fullyQualifiedTypeName name="kr.co.bacode.domain.UserVO"/>
 </qualifiedTypeNameHistroy>

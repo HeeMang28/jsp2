@@ -152,5 +152,29 @@ public class BoardDAO {
 			}
 		}
 	}
+	public void boardUpdate(String content, String title, String writer, int boardNum) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			
+			con = ds.getConnection();
+			String up = "UPDATE boardTbl SET content=? , title=?, writer=?, mDate=now() WHERE board_num=?";
+			pstmt  = con.prepareStatement(up);
+			pstmt.setString(1, content);
+			pstmt.setString(2, title);
+			pstmt.setString(3, writer);
+			pstmt.setInt(4, boardNum);
+			pstmt.executeUpdate();
+		} catch(Exception e){
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+				pstmt.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			}
+		}
 }
 	

@@ -31,6 +31,7 @@ public class GetBoardList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		BoardDAO dao = BoardDAO.getInstance();
 		List<BoardVO> boardList = dao.getBoardList();
 		// 포워딩 위치로 얻어온 데이터 보내기
