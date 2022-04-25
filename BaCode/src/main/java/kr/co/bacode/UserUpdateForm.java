@@ -38,7 +38,7 @@ public class UserUpdateForm extends HttpServlet {
 		UserDAO dao = UserDAO.getInstance();
 		UserVO user  = dao.getUserDetail(uId);
 		request.setAttribute("user", user);
-		RequestDispatcher dp = request.getRequestDispatcher("/user/UserUpdateForm.jsp");
+		RequestDispatcher dp = request.getRequestDispatcher("/user/userUpdateForm.jsp");
 		dp.forward(request, response);
 	}
 

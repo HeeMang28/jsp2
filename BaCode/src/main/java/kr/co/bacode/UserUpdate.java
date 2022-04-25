@@ -36,12 +36,14 @@ public class UserUpdate extends HttpServlet {
 		String pNum = request.getParameter("pNum");
 		String nckName = request.getParameter("nckName");
 		String email = request.getParameter("email");
+		String strHeart = request.getParameter("heart");
+		int heart = Integer.parseInt(strHeart);
 		
-		
-
+		System.out.println("uid : " + uId + " upw :" + uPw + " 이름 " + uName + " 주소 : " + addr + " 전화번호 : " + pNum + "닉네임 : " + nckName + " 이메일 : " + email);
 		UserDAO dao = UserDAO.getInstance();
-		// dao의 insert기능  호출 및 파라미터 매칭
-		dao.userUpdate(uId, uPw, uName, email, pNum, addr, nckName);
+		
+		dao.userUpdate(uId, uPw, uName, email, heart, pNum, addr, nckName);
+		response.sendRedirect("http://localhost:8181/BaCode/getUserDetail?uId=" + uId );
 	}
 
 }

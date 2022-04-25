@@ -1,7 +1,6 @@
-package kr.co.ict;
+package kr.co.bacode;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.ict.domain.BoardDAO;
-import kr.co.ict.domain.BoardVO;
+import kr.co.bacode.domain.UserDAO;
+import kr.co.bacode.domain.UserVO;
 
 /**
- * Servlet implementation class getBoardDetail
+ * Servlet implementation class getUserDetail
  */
-@WebServlet("/boardDetail")
-public class getBoardDetail extends HttpServlet {
+@WebServlet("/getUserDetail")
+public class GetUserDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getBoardDetail() {
+    public GetUserDetail() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,18 +31,13 @@ public class getBoardDetail extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 파라미터로 글번호("board_num")을 받아오세요.
-		String boardNum = request.getParameter("boardNum");
-		// DAO를 생성하세요.
-		BoardDAO dao = BoardDAO.getInstance();
-		// DAO에서 호출한 디테일 글 정보를 저장해주세요.
-		BoardVO bno  = dao.getBoardDetail(Integer.parseInt(boardNum));
-		// 얻어온 글 정보를 디버깅해주세요.
-		System.out.println("글정보 : " + boardNum);
-		// 바인딩 해주세요.
-		request.setAttribute("boardNum", boardNum);
-		RequestDispatcher dp = request.getRequestDispatcher("/board/boardDetail.jsp");
-		// 포워딩해주세요. (/board/boardDetail.jsp로)
+		request.setCharacterEncoding("utf-8");
+		String uId = request.getParameter("uId");
+		UserDAO dao = UserDAO.getInstance();
+		UserVO user  = dao.getUserDetail(uId);
+		System.out.println(user);
+		request.setAttribute("user", user);
+		RequestDispatcher dp = request.getRequestDispatcher("/user/getUserDetail.jsp");
 		dp.forward(request, response);
 		
 	}
@@ -52,7 +46,8 @@ public class getBoardDetail extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

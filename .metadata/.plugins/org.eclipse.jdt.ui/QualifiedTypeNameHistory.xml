@@ -2,7 +2,7 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="kr.co.ict.domain.BoardVO"/>
     <fullyQualifiedTypeName name="kr.co.ict.domain.BoardDAO"/>
-    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
     <fullyQualifiedTypeName name="kr.co.bacode.domain.UserDAO"/>
     <fullyQualifiedTypeName name="kr.co.bacode.domain.UserVO"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
 </qualifiedTypeNameHistroy>
