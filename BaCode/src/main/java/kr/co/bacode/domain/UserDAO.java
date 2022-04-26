@@ -30,22 +30,21 @@ public class UserDAO {
             }
             return dao;
         }
-    	public void userUpdate(String uId, String uPw, String uName, String email, int heart, String pNum, String addr, String nckName) {
+    	public void userUpdate(String uId, String uPw, String uName, String email, String pNum, String addr, String nckName) {
     		Connection con = null;
     		PreparedStatement pstmt = null;
     		try {
     			
     			con = ds.getConnection();
-    			String up = "UPDATE userTbl SET upw=?, uname=?, email=?, heart=?,  p_num=?, addr=?, nck_name WHERE uid = ?";
+    			String up = "UPDATE userTbl SET upw=?, uname=?, email=?, p_num=?, addr=?, nck_name=? WHERE uid = ?";
     			pstmt  = con.prepareStatement(up);
     			pstmt.setString(1, uPw);
     			pstmt.setString(2, uName);
     			pstmt.setString(3, email);
-    			pstmt.setInt(4, heart);
-    			pstmt.setString(5, pNum);
-    			pstmt.setString(6, addr);
-    			pstmt.setString(7, nckName);
-    			pstmt.setString(8, uId);
+    			pstmt.setString(4, pNum);
+    			pstmt.setString(5, addr);
+    			pstmt.setString(6, nckName);
+    			pstmt.setString(7, uId);
     			pstmt.executeUpdate();
     		} catch(Exception e){
     			e.printStackTrace();

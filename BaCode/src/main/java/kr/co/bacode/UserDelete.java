@@ -2,6 +2,7 @@ package kr.co.bacode;
 
 import java.io.IOException;
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,7 +37,7 @@ public class UserDelete extends HttpServlet {
 
 		UserDAO dao = UserDAO.getInstance();
 		dao.userDelete(uId);
-		response.sendRedirect("http://localhost:8181/BaCode/userLoginForm");
+		response.sendRedirect("http://localhost:8181/BaCode/userDeleteCheck.jsp");
 	}
 
 }

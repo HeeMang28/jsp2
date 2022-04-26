@@ -5,4 +5,5 @@
     <fullyQualifiedTypeName name="kr.co.bacode.domain.UserDAO"/>
     <fullyQualifiedTypeName name="kr.co.bacode.domain.UserVO"/>
     <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="com.mysql.cj.Session"/>
 </qualifiedTypeNameHistroy>
