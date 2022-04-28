@@ -48,10 +48,25 @@ public class BoardController extends HttpServlet {
 		BoardDAO dao = BoardDAO.getInstance();
 		
 		if(uri.equals("/MyFirstWeb/boardList.do")) {
-			// boardList.jsp를 이용해 글목록 페이지로 넘어가도록 로직을 작성해주세요.
-			ui = "/MyFirstWeb/boardList.do";
+			// boardList.do를 이용해 글목록 페이지로 넘어가도록 로직을 작성해주세요.
 			List<BoardVO> boardList = dao.getBoardList();
+			ui = "/board/getBoardList.jsp";
 			request.setAttribute("boardList", boardList);
+		} else if(uri.equals("/MyFirstWeb/boardDetail.do")) {
+			String strBoardNum = request.getParameter("board_num");
+			int boardNum = Integer.parseInt(strBoardNum);
+			BoardVO board = dao.getBoardDetail(boardNum);
+			ui = "/board/boardDetail.jsp";
+			request.setAttribute("board", board);
+		} else if(uri.equals("/MyFirstWeb/boardInsertForm.do")) {
+			ui = "/board/boardInsertForm.jsp";
+		} else if(uri.equals("/MyFirstWeb/boardInsert.do")) {
+			request.setCharacterEncoding("utf-8");
+			String title = request.getParameter("title");
+			String content = request.getParameter("content");
+			String writer = request.getParameter("writer");
+			dao.boardInsert(title, content, writer);
+			response.sendRedirect("http://localhost:8181/MyFirstWeb/boardList.do");
 		}
 		
 		RequestDispatcher dp = request.getRequestDispatcher(ui);
