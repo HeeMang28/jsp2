@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.bacode.domain.UserDAO;
-import kr.co.bacode.domain.UserVO;
+import kr.co.bacode.domain.userDAO;
+import kr.co.bacode.domain.userVO;
 
 /**
  * Servlet implementation class UserDelete
@@ -35,7 +35,7 @@ public class UserDelete extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String uId = request.getParameter("uId");
 
-		UserDAO dao = UserDAO.getInstance();
+		userDAO dao = userDAO.getInstance();
 		dao.userDelete(uId);
 		response.sendRedirect("http://localhost:8181/BaCode/userDeleteCheck.jsp");
 	}

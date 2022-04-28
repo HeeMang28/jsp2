@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.bacode.domain.UserDAO;
-import kr.co.bacode.domain.UserVO;
+import kr.co.bacode.domain.userDAO;
+import kr.co.bacode.domain.userVO;
 
 
 
@@ -35,8 +35,8 @@ public class UserUpdateForm extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		String uId = request.getParameter("uId");
-		UserDAO dao = UserDAO.getInstance();
-		UserVO user  = dao.getUserDetail(uId);
+		userDAO dao = userDAO.getInstance();
+		userVO user  = dao.getUserDetail(uId);
 		request.setAttribute("user", user);
 		RequestDispatcher dp = request.getRequestDispatcher("/user/userUpdateForm.jsp");
 		dp.forward(request, response);

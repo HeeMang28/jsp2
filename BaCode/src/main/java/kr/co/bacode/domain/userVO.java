@@ -1,6 +1,6 @@
 package kr.co.bacode.domain;
 
-public class UserVO {
+public class userVO {
 	   private String uId;
 	    private String uPw;
 	    private String uName;

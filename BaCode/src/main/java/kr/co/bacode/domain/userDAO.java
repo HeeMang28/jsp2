@@ -9,13 +9,13 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 
-public class UserDAO {
+public class userDAO {
 
     private DataSource ds;
         // DAO 생성
-        private static UserDAO dao = new UserDAO();
+        private static userDAO dao = new userDAO();
 
-        private UserDAO() {
+        private userDAO() {
             try {
                 Context ct = new InitialContext();
                 ds = (DataSource)ct.lookup("java:comp/env/jdbc/mysql");
@@ -24,9 +24,9 @@ public class UserDAO {
             }
         }
         // 싱글턴 패턴
-        public static UserDAO getInstance() {
+        public static userDAO getInstance() {
             if(dao == null) {
-                dao = new UserDAO();
+                dao = new userDAO();
             }
             return dao;
         }
@@ -81,11 +81,11 @@ public class UserDAO {
     			}
     		}
     	}
-    	public UserVO getUserDetail(String uId) {
+    	public userVO getUserDetail(String uId) {
     		Connection con = null;
     		PreparedStatement pstmt = null;
     		ResultSet rs = null;
-    		UserVO user = new UserVO();
+    		userVO user = new userVO();
     		try {
 
     			con = ds.getConnection();

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.bacode.domain.UserDAO;
+import kr.co.bacode.domain.userDAO;
 
 /**
  * Servlet implementation class UserUpdate
@@ -39,7 +39,7 @@ public class UserUpdate extends HttpServlet {
 
 		
 		System.out.println("uid : " + uId + " upw :" + uPw + " 이름 " + uName + " 주소 : " + addr + " 전화번호 : " + pNum + "닉네임 : " + nckName + " 이메일 : " + email);
-		UserDAO dao = UserDAO.getInstance();
+		userDAO dao = userDAO.getInstance();
 		
 		dao.userUpdate(uId, uPw, uName, email, pNum, addr, nckName);
 		response.sendRedirect("http://localhost:8181/BaCode/getUserDetail?uId=" + uId );
