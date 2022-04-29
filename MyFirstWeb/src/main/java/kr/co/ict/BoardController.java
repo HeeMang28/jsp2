@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.ict.domain.BoardDAO;
 import kr.co.ict.domain.BoardVO;
+import kr.co.ict.service.BoardDetailService;
+import kr.co.ict.service.BoardListService;
+import kr.co.ict.service.IBoardService;
 
 /**
  * Servlet implementation class BoardController
@@ -46,28 +49,46 @@ public class BoardController extends HttpServlet {
 		String ui = null;
 		// dao 생성
 		BoardDAO dao = BoardDAO.getInstance();
-		
+		IBoardService sv = null;
 		if(uri.equals("/MyFirstWeb/boardList.do")) {
-			// boardList.do를 이용해 글목록 페이지로 넘어가도록 로직을 작성해주세요.
-			List<BoardVO> boardList = dao.getBoardList();
+			// 서비스 생성
+			sv = new BoardListService();
+			// 서비스 .execute(request, response) 호출
+			sv.execute(request, response);
 			ui = "/board/getBoardList.jsp";
-			request.setAttribute("boardList", boardList);
 		} else if(uri.equals("/MyFirstWeb/boardDetail.do")) {
-			String strBoardNum = request.getParameter("board_num");
-			int boardNum = Integer.parseInt(strBoardNum);
-			BoardVO board = dao.getBoardDetail(boardNum);
+			sv = new BoardDetailService();
+			sv.execute(request, response);
 			ui = "/board/boardDetail.jsp";
-			request.setAttribute("board", board);
 		} else if(uri.equals("/MyFirstWeb/boardInsertForm.do")) {
 			ui = "/board/boardInsertForm.jsp";
 		} else if(uri.equals("/MyFirstWeb/boardInsert.do")) {
-			request.setCharacterEncoding("utf-8");
 			String title = request.getParameter("title");
 			String content = request.getParameter("content");
 			String writer = request.getParameter("writer");
 			dao.boardInsert(title, content, writer);
-			response.sendRedirect("http://localhost:8181/MyFirstWeb/boardList.do");
+			ui = "/boardList.do"; // 리다이렉트시는 폴더명 없이 마지막 주소만 적습니다.
+		} else if(uri.equals("/MyFirstWeb/boardDelete.do")) {
+			String strBoardNum = request.getParameter("board_num");
+			int boardNum = Integer.parseInt(strBoardNum);
+			dao.boardDelete(boardNum);
+			ui = "/boardList.do";
+		} else if(uri.equals("/MyFirstWeb/boardUpdateForm.do")) {
+			String strBoardNum = request.getParameter("board_num");
+			int boardNum = Integer.parseInt(strBoardNum);
+			BoardVO board  = dao.getBoardDetail(boardNum);
+			request.setAttribute("board", board);
+			ui = "/board/boardUpdateForm.jsp";
+		} else if(uri.equals("/MyFirstWeb/boardUpdate.do")) {
+			String writer = request.getParameter("writer");
+			String content = request.getParameter("content");
+			String title = request.getParameter("title");
+			String strBoardNum = request.getParameter("board_num");
+			int boardNum = Integer.parseInt(strBoardNum);
+			dao.boardUpdate(content, title, writer, boardNum);
+			ui = "/boardDetail.do?board_num=" + boardNum;
 		}
+				
 		
 		RequestDispatcher dp = request.getRequestDispatcher(ui);
 		dp.forward(request, response);

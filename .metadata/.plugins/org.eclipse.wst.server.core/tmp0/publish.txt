@@ -1,5 +1,4 @@
 #Tomcat publish data
-#Thu Apr 28 19:34:56 KST 2022
-org.eclipse.jst.jee.server\:JDBCPrj=C\:\\Users\\ict03-12\uC624\uD6C4\uBC18\\Downloads\\apache-tomcat-9.0.62\\apache-tomcat-9.0.62\\wtpwebapps\\JDBCPrj
-org.eclipse.jst.jee.server\:MyFirstWeb=C\:\\Users\\ict03-12\uC624\uD6C4\uBC18\\Downloads\\apache-tomcat-9.0.62\\apache-tomcat-9.0.62\\wtpwebapps\\MyFirstWeb
-org.eclipse.jst.jee.server\:BaCode=C\:\\Users\\ict03-12\uC624\uD6C4\uBC18\\Downloads\\apache-tomcat-9.0.62\\apache-tomcat-9.0.62\\wtpwebapps\\BaCode
+#Fri Apr 29 21:13:37 KST 2022
+org.eclipse.jst.jee.server\:BaCode=C\:\\tomcat\\apache-tomcat-9.0.62\\wtpwebapps\\BaCode
+org.eclipse.jst.jee.server\:MyFirstWeb=C\:\\tomcat\\apache-tomcat-9.0.62\\wtpwebapps\\MyFirstWeb

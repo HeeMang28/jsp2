@@ -22,10 +22,10 @@
     <WatchedResource>WEB-INF/tomcat-web.xml</WatchedResource>
     <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
 
-	    <Resource
+	     <Resource
     	auth="Container"
     	driverClassName = "com.mysql.cj.jdbc.Driver"
-    	url = "jdbc:mysql://localhost:3306/jdbcprac2?serverTimezone=UTC"
+    	url = "jdbc:mysql://localhost:3306/bacode?serverTimezone=UTC"
     	username = "root"
     	password = "mysql"
     	name = "jdbc/mysql"
