@@ -12,8 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.ict.domain.BoardDAO;
 import kr.co.ict.domain.BoardVO;
+import kr.co.ict.service.BoardDeleteService;
 import kr.co.ict.service.BoardDetailService;
+import kr.co.ict.service.BoardInsertService;
 import kr.co.ict.service.BoardListService;
+import kr.co.ict.service.BoardUpdateFormService;
+import kr.co.ict.service.BoardUpdateService;
 import kr.co.ict.service.IBoardService;
 
 /**
@@ -61,32 +65,24 @@ public class BoardController extends HttpServlet {
 			sv.execute(request, response);
 			ui = "/board/boardDetail.jsp";
 		} else if(uri.equals("/MyFirstWeb/boardInsertForm.do")) {
+			// 로직이 없어서 ui 로 연결해주는것만으로도 충분함
 			ui = "/board/boardInsertForm.jsp";
 		} else if(uri.equals("/MyFirstWeb/boardInsert.do")) {
-			String title = request.getParameter("title");
-			String content = request.getParameter("content");
-			String writer = request.getParameter("writer");
-			dao.boardInsert(title, content, writer);
+			sv = new BoardInsertService();
+			sv.execute(request, response);
 			ui = "/boardList.do"; // 리다이렉트시는 폴더명 없이 마지막 주소만 적습니다.
 		} else if(uri.equals("/MyFirstWeb/boardDelete.do")) {
-			String strBoardNum = request.getParameter("board_num");
-			int boardNum = Integer.parseInt(strBoardNum);
-			dao.boardDelete(boardNum);
+			sv = new BoardDeleteService();
+			sv.execute(request, response);
 			ui = "/boardList.do";
 		} else if(uri.equals("/MyFirstWeb/boardUpdateForm.do")) {
-			String strBoardNum = request.getParameter("board_num");
-			int boardNum = Integer.parseInt(strBoardNum);
-			BoardVO board  = dao.getBoardDetail(boardNum);
-			request.setAttribute("board", board);
+			sv = new BoardUpdateFormService();
+			sv.execute(request, response);
 			ui = "/board/boardUpdateForm.jsp";
 		} else if(uri.equals("/MyFirstWeb/boardUpdate.do")) {
-			String writer = request.getParameter("writer");
-			String content = request.getParameter("content");
-			String title = request.getParameter("title");
-			String strBoardNum = request.getParameter("board_num");
-			int boardNum = Integer.parseInt(strBoardNum);
-			dao.boardUpdate(content, title, writer, boardNum);
-			ui = "/boardDetail.do?board_num=" + boardNum;
+			sv = new BoardUpdateService();
+			sv.execute(request, response);
+			ui = "/boardDetail.do?board_num=" + request.getParameter("board_num");
 		}
 				
 		
