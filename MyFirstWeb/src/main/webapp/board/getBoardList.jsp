@@ -8,7 +8,7 @@
 세션값 : ${sessionScope.s_id }<br/>
 <c:if test="${sessionScope.s_id eq null }">
 <!--  <script> location.href="http://localhost:8181/MyFirstWeb/"</script> 이렇게 쓸경우 디버거 자바스크립트를 사용하면 뚫리기 때문에 비추천한다. -->
-<% response.sendRedirect("http://localhost:8181/MyFirstWeb/"); %>
+<% //response.sendRedirect("http://localhost:8181/MyFirstWeb/"); %>
 </c:if>
 <!DOCTYPE html>
 <html>
@@ -47,6 +47,8 @@
 			</c:forEach>
 		</tbody>	
 	</table>
+	<c:if test="${sessionScope.s_id ne null}"><!-- !=, ne(negative) 똑같이 쓰임. -->
 	<a href="http://localhost:8181/MyFirstWeb/boardInsertForm.do"><button>글쓰기</button></a>
+	</c:if>
 </body>
 </html>

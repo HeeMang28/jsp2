@@ -8,8 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+${user }
  <form name="check">
-    비밀번호 : <input type="password" id="password1" ><br/>
+    비밀번호 : <input type="hidden" id="password1" value="${user.uPw }" ><br/>
     비밀번호확인 : <input type="password" id="password2" >
     <input type="button" onclick="test()" value="비밀번호 확인">
   </form>

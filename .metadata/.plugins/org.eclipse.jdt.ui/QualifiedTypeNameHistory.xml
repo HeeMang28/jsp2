@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="kr.co.ict.domain.BoardVO"/>
-    <fullyQualifiedTypeName name="kr.co.ict.domain.BoardDAO"/>
     <fullyQualifiedTypeName name="kr.co.bacode.domain.UserDAO"/>
     <fullyQualifiedTypeName name="kr.co.bacode.domain.UserVO"/>
     <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
@@ -10,7 +9,13 @@
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
     <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
-    <fullyQualifiedTypeName name="kr.co.ict.service.IBoardService"/>
     <fullyQualifiedTypeName name="kr.co.ict.service.BoardListService"/>
+    <fullyQualifiedTypeName name="kr.co.ict.service.IBoardService"/>
+    <fullyQualifiedTypeName name="kr.co.ict.service.BoardInsertService"/>
     <fullyQualifiedTypeName name="kr.co.ict.service.BoardDetailService"/>
+    <fullyQualifiedTypeName name="kr.co.ict.service.BoardUpdateFormService"/>
+    <fullyQualifiedTypeName name="kr.co.ict.service.BoardDeleteService"/>
+    <fullyQualifiedTypeName name="kr.co.ict.domain.BoardDAO"/>
+    <fullyQualifiedTypeName name="kr.co.ict.service.BoardUpdateService"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 </qualifiedTypeNameHistroy>
