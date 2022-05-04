@@ -24,7 +24,6 @@ public class BoardDeleteService implements IBoardService {
 		BoardDAO dao = BoardDAO.getInstance();
 		String strBoardNum = request.getParameter("board_num");
 		int boardNum = Integer.parseInt(strBoardNum);
-		
 		dao.boardDelete(boardNum);
 		}
 	}

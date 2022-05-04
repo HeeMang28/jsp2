@@ -18,7 +18,7 @@
 	<hr/>
 	<a href="http://localhost:8181/MyFirstWeb/boardList.do"><buttion>목록으로</buttion></a>
 	<!--  삭제번호를 서블릿 boardDelete로 보내야함 -->
-	<c:if test="${sessionScope.s_id eq board_writer }">
+	<c:if test="${sessionScope.s_id eq board.writer }">
 	<form action="http://localhost:8181/MyFirstWeb/boardDelete.do" method="post">
 	<!--  삭제용 글 번호는 노출시킬 필요가 없으므로 hidden타입으로 숨겨서 보냄 -->
 	<input type="hidden" name="board_num" value="${board.boardNum }"><br/>

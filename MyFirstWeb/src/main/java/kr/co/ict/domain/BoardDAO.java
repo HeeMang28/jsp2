@@ -31,7 +31,7 @@ public class BoardDAO {
 	// 게시판의 전체 글을 가져오는 getBoardList() 메서드를 작성해주세요.
 	// 전체 글을 가져오므로 List<BoradVO> 를 리턴하면 됩니다.
 	// 작성시 UserDAO의 getAllUserList()메서드를 참조해주세요.
-	public List<BoardVO> getBoardList() { 
+	public List<BoardVO> getBoardList(int pageNum) { 
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -40,8 +40,9 @@ public class BoardDAO {
 		
 		try {
 			con = ds.getConnection();
-			String sql = "SELECT * FROM boardTbl ORDER BY board_num DESC";
+			String sql = "SELECT * FROM boardtbl ORDER BY board_num DESC limit ((?-1)*10), 10";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, pageNum);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -76,6 +77,7 @@ public class BoardDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		BoardVO board = new BoardVO();
+		// upHit(boardNum); 이거의 단점은 디테일로직을 실행하는 모든것에 조회수 1씩 증가 한다.
 		try {
 			// 연결해주세요.
 			con = ds.getConnection();
@@ -164,6 +166,27 @@ public class BoardDAO {
 			pstmt.setString(2, title);
 			pstmt.setString(3, writer);
 			pstmt.setInt(4, boardNum);
+			pstmt.executeUpdate();
+		} catch(Exception e){
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+				pstmt.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			}
+		}
+	public void upHit(int boardNum) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = ds.getConnection();
+			String sql = "UPDATE boardTbl SET hit = hit + 1 WHERE board_num =?";
+			pstmt  = con.prepareStatement(sql);
+			pstmt.setInt(1, boardNum);
 			pstmt.executeUpdate();
 		} catch(Exception e){
 			e.printStackTrace();
