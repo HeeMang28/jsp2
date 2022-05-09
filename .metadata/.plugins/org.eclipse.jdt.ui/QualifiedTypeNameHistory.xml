@@ -18,4 +18,5 @@
     <fullyQualifiedTypeName name="kr.co.ict.domain.BoardDAO"/>
     <fullyQualifiedTypeName name="kr.co.ict.service.BoardUpdateService"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="kr.co.ict.domain.BoardButtonDTO"/>
 </qualifiedTypeNameHistroy>

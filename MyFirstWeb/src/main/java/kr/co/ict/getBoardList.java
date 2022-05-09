@@ -33,10 +33,10 @@ public class GetBoardList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		BoardDAO dao = BoardDAO.getInstance();
-		List<BoardVO> boardList = dao.getBoardList();
+		//List<BoardVO> boardList = dao.getBoardList();
 		// 포워딩 위치로 얻어온 데이터 보내기
 	 
-		request.setAttribute("boardList", boardList);
+		//request.setAttribute("boardList", boardList);
 		RequestDispatcher dp = request.getRequestDispatcher("/board/getBoardList.jsp");
 		dp.forward(request, response);
 		// 보통 수정이나 삭제 등을 할때는 post 방식으로 처리하고 조회 등만 할때는 get방식으로 처리한다.
