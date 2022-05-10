@@ -17,6 +17,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<div class="container">
 	<h1>/boardList 임시 페이지 을 적어주세요.</h1>
 	<table class="table">
 		<thead>
@@ -57,10 +58,8 @@
 	 </c:if>
 	<!--  foreach문의 begin, end속성을 이용해 숫자를 알맞게 깔아주세요. -->
 	<c:forEach var="pageNum" begin="${buttons.startPage }" end="${buttons.endPage }">
-		 <c:if test="${pageNum eq buttons.currentPage }" >
-		 <li class="page-item active" ><a class="page-link" href="#" >${buttons.currentPage }</a></li>
-		 </c:if>
-		<li class="page-item"><a class="page-link" href="http://localhost:8181/MyFirstWeb/boardList.do?pageNum=${pageNum }" >${pageNum } </a></li>
+		<li class="page-item ${buttons.currentPage eq pageNum ? 'active' : '' }"><a class="page-link" href="http://localhost:8181/MyFirstWeb/boardList.do?pageNum=${pageNum }" >${pageNum } </a></li>
+		<!-- 힌트 : 삼항연산자를 class 속성 내부에 사용해서 active를 넣어주면 됨 -->
 	</c:forEach>
 	
 	<c:if test="${buttons.totalPages ne buttons.endPage  }">
@@ -72,5 +71,6 @@
 	</c:if>
 	</ul>
 	</nav>
+	</div> <!-- container -->
 </body>
 </html>
