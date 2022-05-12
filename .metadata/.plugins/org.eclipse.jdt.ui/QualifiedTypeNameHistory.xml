@@ -18,4 +18,6 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="kr.co.ict.domain.BoardVO"/>
     <fullyQualifiedTypeName name="kr.co.ict.domain.BoardButtonDTO"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.Node"/>
 </qualifiedTypeNameHistroy>
